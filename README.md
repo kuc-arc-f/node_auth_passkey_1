@@ -45,3 +45,5 @@ npm run start      # http://localhost:3000
 ***
 ### blog
 
+https://zenn.dev/knaka0209/scraps/713e2a9cd12fd9
+
