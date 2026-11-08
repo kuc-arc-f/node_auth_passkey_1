@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Passkey ログイン</title>
+<style>
+  body{font-family:system-ui,"Yu Gothic UI",sans-serif;max-width:420px;margin:60px auto;padding:0 16px;color:#222}
+  h1{font-size:1.4rem} .card{border:1px solid #ddd;border-radius:12px;padding:20px;margin-bottom:16px}
+  input{width:100%;padding:10px;margin:6px 0 12px;border:1px solid #bbb;border-radius:8px;box-sizing:border-box;font-size:1rem}
+  button{width:100%;padding:11px;border:0;border-radius:8px;font-size:1rem;cursor:pointer;background:#0f62fe;color:#fff;margin-top:4px}
+  button.sub{background:#e8e8e8;color:#222} #msg{min-height:1.4em;color:#c00;font-size:.9rem}
+  ul{padding-left:18px;font-size:.9rem}
+</style>
+</head>
+<body>
+<h1>🔑 Passkey ログイン</h1>
+<p id="msg"></p>
+
+<div id="guest">
+  <div class="card">
+    <strong>ログイン</strong>
+    <p style="font-size:.85rem;color:#666">ユーザー名は空欄でも OK(Windows Hello が保存済みパスキーを表示します)</p>
+    <input id="loginName" placeholder="ユーザー名(任意)" autocomplete="username webauthn">
+    <button id="btnLogin">Windows Hello でログイン</button>
+  </div>
+  <div class="card">
+    <strong>新規登録</strong>
+    <input id="regName" placeholder="ユーザー名" autocomplete="username">
+    <button id="btnRegister" class="sub">Passkey を作成</button>
+  </div>
+</div>
+
+<div id="member" hidden>
+  <div class="card">
+    <p>ようこそ、<strong id="who"></strong> さん</p>
+    <p>登録済み Passkey:</p><ul id="credList"></ul>
+    <button id="btnAdd" class="sub">この端末の Passkey を追加</button>
+    <button id="btnLogout" class="sub">ログアウト</button>
+  </div>
+</div>
+
+<script src="/vendor/simplewebauthn-browser.js"></script>
+<script src="/app.js"></script>
+</body>
+</html>
